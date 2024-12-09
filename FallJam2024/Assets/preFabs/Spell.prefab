@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8578925766247320160}
+  - component: {fileID: 7883151861046249712}
   - component: {fileID: 498106533546042404}
   - component: {fileID: 6117783375942542951}
   - component: {fileID: 7849809874934319299}
   m_Layer: 0
   m_Name: Spell
-  m_TagString: Untagged
+  m_TagString: spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,6 +35,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7883151861046249712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6177259780096746179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470d66e8c0cabbe45a4c1b04267de3eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limitspell: 5.5
 --- !u!212 &498106533546042404
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -142,7 +156,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
