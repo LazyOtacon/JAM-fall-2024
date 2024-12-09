@@ -5,9 +5,10 @@ public class EnemyGroupManager : MonoBehaviour
 {
     public List<Transform> enemies = new List<Transform>(); // Initialize list for dynamic management
     public float moveSpeed = 2f;
-    public float boundaryMargin = 0.5f; // Adjustable margin to account for sprite size
+    public float boundaryMargin = 3.3f; // Adjustable margin to account for sprite size
     public float speedIncrease = 0.5f;  // Amount by which to increase speed
     public bool IsMovingDown;
+    public float MoveDistance = 0.2f;
 
     private int direction = 1; // 1 for right, -1 for left
     private float boundaryLeft;
@@ -81,11 +82,11 @@ public class EnemyGroupManager : MonoBehaviour
             {
                 if (IsMovingDown)
                 {
-                    enemy.Translate(Vector3.down * 1f); // Move down when reversing
+                    enemy.Translate(Vector3.down * MoveDistance); // Move down when reversing
                 }
                 else
                 {
-                    enemy.Translate(Vector3.down * -1f); // Move up when reversing
+                    enemy.Translate(Vector3.down * (MoveDistance * -1)); // Move up when reversing
                 }
             }
         }
