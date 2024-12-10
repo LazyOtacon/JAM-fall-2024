@@ -8,6 +8,8 @@ TagManager:
   - Enemy down
   - spell
   - player
+  - Barrier
+  - Monster
   layers:
   - Default
   - TransparentFX
