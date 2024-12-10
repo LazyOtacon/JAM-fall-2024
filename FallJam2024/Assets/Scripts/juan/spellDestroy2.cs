@@ -21,7 +21,16 @@ public class spellDestroy2 : MonoBehaviour
         // Check collision with specific tags and destroy the bullet if it hits one of these objects.
         if (collision.gameObject.CompareTag("player"))
         {
+            // Destroy the player and the spell.
+            Destroy(collision.gameObject);
             Destroy(gameObject);
+
+            // Optionally notify the gameOverMenu.
+            gameOverMenu gameOver = FindObjectOfType<gameOverMenu>();
+            if (gameOver != null)
+            {
+                gameOver.OnPlayerDestroyed(collision.gameObject);
+            }
         }
         else if (collision.gameObject.CompareTag("Enemy up"))
         {

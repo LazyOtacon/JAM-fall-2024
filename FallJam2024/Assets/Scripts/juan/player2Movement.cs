@@ -11,45 +11,45 @@ public class player2Movement : MonoBehaviour
     public float spellSpeed = 20f; // Speed of the spell
 
     public float minX = -5f; // Minimum X position for movement
-    public float maxX = 5f; 
+    public float maxX = 5f;
 
-    private Vector2 keyboardInput; // Stores keyboard movement input
+    private Vector2 playerMove; // Stores input for movement (keyboard/joystick)
 
     void Update()
     {
-        // Handle player movement based on keyboard input
+        // Handle player movement based on input
         HandleMovement();
-
-        // Handle spell casting when Space is pressed
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            CastSpell();
-        }
     }
 
-    // Handles player movement using keyboard input
+    // Handles player movement using the playerMove vector
     void HandleMovement()
     {
-        // Get keyboard input
-        float horizontal = 0f;
-        if (Keyboard.current.aKey.isPressed)
-        {
-            horizontal = 1f;
-        }
-        else if (Keyboard.current.dKey.isPressed)
-        {
-            horizontal = -1f;
-        }
-
-        // Move the player horizontally
-        Vector3 movement = new Vector3(horizontal * movementSpeed * Time.deltaTime, 0, 0);
+        // Apply horizontal movement from input
+        Vector3 movement = new Vector3(playerMove.x * movementSpeed * Time.deltaTime, 0, 0);
         transform.Translate(movement);
 
+        // Clamp position within bounds
         transform.position = new Vector3(
             Mathf.Clamp(transform.position.x, minX, maxX),
             transform.position.y,
             transform.position.z);
+    }
 
+    // Input System for movement
+    public void OnMove(InputValue inputValue)
+    {
+        playerMove = inputValue.Get<Vector2>();
+        Debug.Log("Movement Input: " + playerMove);
+    }
+
+    // Input System for firing
+    public void OnFire(InputValue inputValue)
+    {
+        if (inputValue.isPressed)
+        {
+            CastSpell();
+            Debug.Log("Fire Input Triggered");
+        }
     }
 
     // Instantiates and casts a spell

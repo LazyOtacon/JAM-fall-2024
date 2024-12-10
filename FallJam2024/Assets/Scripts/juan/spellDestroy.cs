@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class spellDestroy : MonoBehaviour
 {
-    public float limitspell = 5.5f; // Maximum Y position before the bullet is destroyed.
+    public float limitspell = 5.5f; // Maximum Y position before the spell is destroyed.
 
     // Update is called once per frame
     void Update()
     {
-        // Destroy the bullet if it goes above the defined Y position (limitspell).
+        // Destroy the spell if it goes above the defined Y position (limitspell).
         if (transform.position.y > limitspell)
         {
             Destroy(gameObject);
@@ -18,10 +18,19 @@ public class spellDestroy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check collision with specific tags and destroy the bullet if it hits one of these objects.
+        // Check collision with specific tags.
         if (collision.gameObject.CompareTag("player"))
         {
+            // Destroy the player and the spell.
+            Destroy(collision.gameObject);
             Destroy(gameObject);
+
+            // Optionally notify the gameOverMenu.
+            gameOverMenu gameOver = FindObjectOfType<gameOverMenu>();
+            if (gameOver != null)
+            {
+                gameOver.OnPlayerDestroyed(collision.gameObject);
+            }
         }
         else if (collision.gameObject.CompareTag("Enemy up"))
         {
@@ -32,4 +41,6 @@ public class spellDestroy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 }
