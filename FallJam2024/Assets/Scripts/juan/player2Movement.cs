@@ -17,6 +17,13 @@ public class player2Movement : MonoBehaviour
     private Vector2 playerMove; // Stores input for movement (keyboard/joystick)
     private GameObject activeShield; // Reference to the active shield
 
+    public float fireCooldown = 1.0f; // Cooldown time in seconds.
+
+    private float lastFireTime = -Mathf.Infinity; // Tracks when the spell was last fired.
+
+    public float ShieldCooldown = 12.0f; // Cooldown time in seconds.
+
+    private float lastShieldTime = -Mathf.Infinity; // Tracks when the spell was last fired.
 
     void Update()
     {
@@ -48,20 +55,30 @@ public class player2Movement : MonoBehaviour
     // Input System for firing
     public void OnFire(InputValue inputValue)
     {
-        if (inputValue.isPressed)
+        if (inputValue.isPressed && Time.time >= lastFireTime + fireCooldown)
         {
             CastSpell();
+            lastFireTime = Time.time; // Update the last fire time.
             Debug.Log("Fire Input Triggered");
+        }
+        else if (inputValue.isPressed)
+        {
+            Debug.Log("Fire is on cooldown.");
         }
     }
 
     // Input System for activating a shield
     public void OnShield(InputValue inputValue)
     {
-        if (inputValue.isPressed && activeShield == null)
+        if (inputValue.isPressed && Time.time >= lastShieldTime + ShieldCooldown && activeShield == null)
         {
             ActivateShield();
-            Debug.Log("Shield Activated");
+            lastShieldTime = Time.time; // Update the last shield activation time.
+            Debug.Log("Shield Input Triggered");
+        }
+        else if (inputValue.isPressed)
+        {
+            Debug.Log("Shield is on cooldown.");
         }
     }
 

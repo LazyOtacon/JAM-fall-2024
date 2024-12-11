@@ -10,6 +10,11 @@ TagManager:
   - player
   - Barrier
   - Monster
+  - spell2
+  - shield
+  - shield2
+  - MonsterP1
+  - MonsterP2
   layers:
   - Default
   - TransparentFX

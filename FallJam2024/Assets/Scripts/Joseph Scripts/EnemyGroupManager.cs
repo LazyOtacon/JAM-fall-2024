@@ -102,6 +102,11 @@ public class EnemyGroupManager : MonoBehaviour
                 moveSpeed += speedIncrease; // Increase move speed
             }
         }
+
+        if (enemies.Count == 0)
+        {
+            Destroy(gameObject); //destroy useless object
+        }
     }
 
     void UpdateEnemiesList()

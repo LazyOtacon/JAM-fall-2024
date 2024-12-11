@@ -8,11 +8,13 @@ public class SpawnedMonster : MonoBehaviour
 
     public bool IsgoingDown;
     public float speed = 5f; // Speed of movement
+    public float destroyAfterSeconds = 12f;
 
 
     void Start()
     {
         CheckScreenHalf();
+        Destroy(gameObject, destroyAfterSeconds);
     }
 
     void Update()
@@ -30,9 +32,16 @@ public class SpawnedMonster : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the trigger-entering object has the tag "spell"
-        if (other.CompareTag("spell"))
+
+        // Check the tag of THIS gameobject.
+        if (gameObject.CompareTag("MonsterP2") && other.gameObject.CompareTag("spell"))
         {
+            Destroy(other.gameObject); // Destroy Spell
+            OnSpellContact();
+        }
+        else if (gameObject.CompareTag("MonsterP1") && other.gameObject.CompareTag("spell2"))
+        {
+            Destroy(other.gameObject); // Destroy Spell
             OnSpellContact();
         }
     }
@@ -52,11 +61,13 @@ public class SpawnedMonster : MonoBehaviour
         if (screenPosition.y > screenHeight / 2)
         {
             Debug.Log(gameObject.name + " spawned in the top half of the screen.");
+            gameObject.tag = "MonsterP2";
             IsgoingDown = true;
         }
         else
         {
             Debug.Log(gameObject.name + " spawned in the bottom half of the screen.");
+            gameObject.tag = "MonsterP1";
             IsgoingDown = false;
         }
     }

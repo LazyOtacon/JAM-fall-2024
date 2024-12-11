@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shieldDestroyParticles: {fileID: 7804680484581423758, guid: da65ebb4909fb724c99f5e9fea2fbea7, type: 3}
+  shieldLifetime: 3
 --- !u!212 &3931699116952883355
 SpriteRenderer:
   m_ObjectHideFlags: 0
