@@ -9,8 +9,9 @@ public class Barrier : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the colliding object has the tag "spell"
-        if (collision.gameObject.CompareTag("spell"))
+        if (collision.gameObject.CompareTag("spell") || collision.gameObject.CompareTag("spell2"))
         {
+            Destroy(collision.gameObject);
             OnSpellContact();
         }
     }
@@ -18,8 +19,9 @@ public class Barrier : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the trigger-entering object has the tag "spell"
-        if (other.CompareTag("spell"))
+        if (other.CompareTag("spell") || other.gameObject.CompareTag("spell2"))
         {
+            Destroy(other.gameObject);
             OnSpellContact();
         }
     }

@@ -6,19 +6,27 @@ public class spellDestroy : MonoBehaviour
 {
     public float limitspell = 5.5f; // Maximum Y position before the spell is destroyed.
 
-    // Update is called once per frame
-    void Update()
+    public float destroyAfterSeconds = 1.5f;
+
+    void Start()
     {
-        // Destroy the spell if it goes above the defined Y position (limitspell).
-        if (transform.position.y > limitspell)
-        {
-            Destroy(gameObject);
-        }
+        // Schedule the destruction of the object
+        Destroy(gameObject, destroyAfterSeconds);
     }
+
+    // Update is called once per frame
+    //void Update()
+    //{
+    //    // Destroy the spell if it goes above the defined Y position (limitspell).
+    //    if (transform.position.y > limitspell)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check collision with specific tags.
+
         if (collision.gameObject.CompareTag("player"))
         {
             // Destroy the player and the spell.
@@ -32,19 +40,25 @@ public class spellDestroy : MonoBehaviour
                 gameOver.OnPlayerDestroyed(collision.gameObject);
             }
         }
-        else if (collision.gameObject.CompareTag("shield2"))
+        else if (collision.gameObject.CompareTag("shield") || collision.gameObject.CompareTag("shield2"))
         {
-            // Destroy the shield and the spell.
-            Destroy(collision.gameObject); // Destroy the shield
-            Destroy(gameObject);           // Destroy the spell
-            Debug.Log("Shield destroyed!");
+            // Check the tag of THIS gameobject.
+            if (gameObject.CompareTag("spell") && collision.gameObject.CompareTag("shield2"))
+            {
+                Destroy(collision.gameObject); // Destroy Shield2
+                Destroy(gameObject); // Destroy the spell after processing
+            }
+            else if (gameObject.CompareTag("spell2") && collision.gameObject.CompareTag("shield"))
+            {
+                Destroy(collision.gameObject); // Destroy Shield1
+                Destroy(gameObject); // Destroy the spell after processing
+            }
+
         }
-        else if (collision.gameObject.CompareTag("Enemy up"))
+
+        if (collision.gameObject.CompareTag("Enemy up") || collision.gameObject.CompareTag("Enemy down"))
         {
-            Destroy(gameObject);
-        }
-        else if (collision.gameObject.CompareTag("Enemy down"))
-        {
+            Destroy(collision.gameObject);
             Destroy(gameObject);
         }
     }
