@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class player1Movement : MonoBehaviour
 {
     public GameObject spellProjectile; // The spell object to be instantiated
+    public GameObject shieldPrefab; // The shield prefab to be instantiated
 
     public float movementSpeed = 20f; // Speed of player movement
     public float spellSpeed = 20f; // Speed of the spell
@@ -14,6 +15,7 @@ public class player1Movement : MonoBehaviour
     public float maxX = 5f;
 
     private Vector2 playerMove; // Stores input for movement (keyboard/joystick)
+    private GameObject activeShield; // Reference to the active shield
 
     void Update()
     {
@@ -52,11 +54,29 @@ public class player1Movement : MonoBehaviour
         }
     }
 
+    // Input System for activating a shield
+    public void OnShield(InputValue inputValue)
+    {
+        if (inputValue.isPressed && activeShield == null)
+        {
+            ActivateShield();
+            Debug.Log("Shield Activated");
+        }
+    }
+
     // Instantiates and casts a spell
     void CastSpell()
     {
         Vector3 spellPosition = transform.position + new Vector3(0, 0.5f, 0); // Offset for the spell spawn position
         GameObject spell = Instantiate(spellProjectile, spellPosition, Quaternion.identity); // Create the spell
         spell.GetComponent<Rigidbody2D>().velocity = new Vector2(0, spellSpeed); // Apply velocity to the spell
+    }
+
+    // Activates the shield
+    void ActivateShield()
+    {
+        Vector3 shieldPosition = transform.position; // Shield spawns at the player's position
+        activeShield = Instantiate(shieldPrefab, shieldPosition, Quaternion.identity);
+        activeShield.transform.SetParent(transform); // Attach the shield to the player
     }
 }

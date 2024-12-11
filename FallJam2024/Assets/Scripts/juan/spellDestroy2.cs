@@ -32,6 +32,13 @@ public class spellDestroy2 : MonoBehaviour
                 gameOver.OnPlayerDestroyed(collision.gameObject);
             }
         }
+        else if (collision.gameObject.CompareTag("shield"))
+        {
+            // Destroy the shield and the spell.
+            Destroy(collision.gameObject); // Destroy the shield
+            Destroy(gameObject);           // Destroy the spell
+            Debug.Log("Shield destroyed!");
+        }
         else if (collision.gameObject.CompareTag("Enemy up"))
         {
             Destroy(gameObject);

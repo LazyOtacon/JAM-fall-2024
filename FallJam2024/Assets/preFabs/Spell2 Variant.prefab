@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spell2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6177259780096746179, guid: ba5bf6c3d20d0a147abda954964465ac, type: 3}
+      propertyPath: m_TagString
+      value: spell2
+      objectReference: {fileID: 0}
     - target: {fileID: 8578925766247320160, guid: ba5bf6c3d20d0a147abda954964465ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.19
