@@ -17,9 +17,10 @@ public class gameOverMenu : MonoBehaviour
         // Assign listeners to the buttons
         restartButton.onClick.AddListener(RestartGame);
         exitButton.onClick.AddListener(ExitGame);
-
+        Time.timeScale = 1f;
         // Ensure the Game Over menu is initially inactive
         gameOverMenuUI.SetActive(false);
+        
     }
 
     void Update()
