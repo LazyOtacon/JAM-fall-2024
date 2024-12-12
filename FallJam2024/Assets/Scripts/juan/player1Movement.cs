@@ -9,6 +9,7 @@ public class player1Movement : MonoBehaviour
     public GameObject spellProjectile; // The spell object to be instantiated
     public GameObject shieldPrefab; // The shield prefab to be instantiated
     public GameObject monsterPrefab; // The monster prefab to be instantiated
+    public GameObject hoardPrefab; // The monster prefab to be instantiated
 
     public float movementSpeed = 20f; // Speed of player movement
     public float spellSpeed = 20f; // Speed of the spell
@@ -111,6 +112,20 @@ public class player1Movement : MonoBehaviour
         }
     }
 
+    public void OnSpawnHoard(InputValue inputValue)
+    {
+        if (inputValue.isPressed && Time.time >= lastMonsterTime + MonsterCooldown)
+        {
+            SummonHoard();
+            lastMonsterTime = Time.time; // Update the last fire time.
+            Debug.Log("Hoard Input Triggered");
+        }
+        else if (inputValue.isPressed)
+        {
+            Debug.Log("Hoard is on cooldown.");
+        }
+    }
+
     // Instantiates and casts a spell
     void CastSpell()
     {
@@ -131,6 +146,12 @@ public class player1Movement : MonoBehaviour
     {
         Vector3 MonsterPosition = transform.position + new Vector3(0, 1f, 0); // Offset for the spell spawn position
         Instantiate(monsterPrefab, MonsterPosition, Quaternion.identity); // Create the spell
+    }
+
+    void SummonHoard()
+    {
+        Vector3 MonsterPosition = transform.position + new Vector3(0, 5f, 0); // Offset for the spell spawn position
+        Instantiate(hoardPrefab, MonsterPosition, Quaternion.identity); // Create the spell
     }
 
     // Updates the fire cooldown UI bar (using Image fillAmount)

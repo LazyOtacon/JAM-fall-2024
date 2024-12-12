@@ -116,6 +116,7 @@ MonoBehaviour:
   spellProjectile: {fileID: 6177259780096746179, guid: ba5bf6c3d20d0a147abda954964465ac, type: 3}
   shieldPrefab: {fileID: 4357844033215737714, guid: 9be2470ac0cdac449aa2040974e8bd95, type: 3}
   monsterPrefab: {fileID: 3849898791425496311, guid: c1d4c248d33518c4faf6a7a39b432a2b, type: 3}
+  hoardPrefab: {fileID: 7833731853110680251, guid: 92a0dbac60ef9cc4c8b473f8223d3be3, type: 3}
   movementSpeed: 5
   spellSpeed: 10
   minX: -5.6

@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SpawnHoard",
+                    "type": "Button",
+                    "id": "be510aa9-8844-42c0-80c0-1d622f673c72",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -441,6 +450,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SpawnMonster",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2a50be16-45be-4fae-abdf-c9c651ddefb1",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SpawnHoard",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
