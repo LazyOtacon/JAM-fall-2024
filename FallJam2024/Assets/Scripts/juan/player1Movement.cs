@@ -37,6 +37,7 @@ public class player1Movement : MonoBehaviour
     public Image fireCooldownImage; // Reference to the fire cooldown UI image
     public Image shieldCooldownImage; // Reference to the shield cooldown UI image
     public Image MonsterCooldownImage; // Reference to the monster cooldown UI image
+    public Image HoardCooldownImage; // Reference to the monster cooldown UI image
 
     void Update()
     {
@@ -167,6 +168,9 @@ public class player1Movement : MonoBehaviour
 
         float MonsterCooldownProgress = 1 - Mathf.Clamp01((Time.time - lastMonsterTime) / MonsterCooldown);
         MonsterCooldownImage.fillAmount = MonsterCooldownProgress;
+
+        MonsterCooldownProgress = 1 - Mathf.Clamp01((Time.time - lastMonsterTime) / MonsterCooldown);
+        HoardCooldownImage.fillAmount = MonsterCooldownProgress;
     }
 
 }

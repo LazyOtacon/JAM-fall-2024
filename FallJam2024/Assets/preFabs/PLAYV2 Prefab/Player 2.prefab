@@ -63,11 +63,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellProjectile: {fileID: 7505640152699163139, guid: 2d16ba021d551804d9b1c45dd3a7ab76, type: 3}
   shieldPrefab: {fileID: 4357844033215737714, guid: 52c9fee6c0374824d97fdeab2567ec02, type: 3}
+  monsterPrefab: {fileID: 3849898791425496311, guid: c1d4c248d33518c4faf6a7a39b432a2b, type: 3}
+  hoardPrefab: {fileID: 1415715247530206717, guid: 34983e98951112e44975d4c7d2a779b1, type: 3}
   movementSpeed: 5
   spellSpeed: 10
   minX: -5.6
   maxX: 5.6
   fireCooldown: 0.4
+  ShieldCooldown: 12
+  MonsterCooldown: 12
+  fireCooldownImage: {fileID: 0}
+  shieldCooldownImage: {fileID: 0}
+  MonsterCooldownImage: {fileID: 0}
+  HoardCooldownImage: {fileID: 0}
 --- !u!212 &5013997505507151785
 SpriteRenderer:
   m_ObjectHideFlags: 0
