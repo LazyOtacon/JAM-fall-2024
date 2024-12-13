@@ -134,6 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limitspell: 5.5
   destroyAfterSeconds: 1.5
+  spellAS: {fileID: 0}
+  shieldHitSfx: {fileID: 8300000, guid: 8ea9aa2fb9d9bfa4e920f106119d7c40, type: 3}
 --- !u!212 &498106533546042404
 SpriteRenderer:
   m_ObjectHideFlags: 0

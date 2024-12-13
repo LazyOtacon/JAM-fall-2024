@@ -6,6 +6,9 @@ public class playerDestructionMonitor : MonoBehaviour
 {
     private gameOverMenu gameOverMenu;
 
+    public AudioSource plrAS;
+    public AudioClip plrDeathSfx;
+
     void Start()
     {
         // Find the Game Over Menu in the scene
@@ -14,6 +17,10 @@ public class playerDestructionMonitor : MonoBehaviour
 
     void OnDestroy()
     {
+        if (plrDeathSfx != null)
+        {
+            plrAS.PlayOneShot(plrDeathSfx);
+        }
         if (gameOverMenu != null)
         {
             // Notify the Game Over Menu

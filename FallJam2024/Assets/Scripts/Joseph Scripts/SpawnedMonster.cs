@@ -10,9 +10,15 @@ public class SpawnedMonster : MonoBehaviour
     public float speed = 5f; // Speed of movement
     public float destroyAfterSeconds = 12f;
 
+    public AudioSource enemyAS;
+    public AudioClip enemyDieSfx;
+
 
     void Start()
     {
+        var spellGameObject = GameObject.FindGameObjectsWithTag("EnemyAS")[0];
+        enemyAS = GameObject.FindGameObjectsWithTag("EnemyAS")[0]
+            .GetComponent<AudioSource>();
         CheckScreenHalf();
         Destroy(gameObject, destroyAfterSeconds);
     }
@@ -74,6 +80,7 @@ public class SpawnedMonster : MonoBehaviour
 
     private void OnSpellContact()
     {
+        enemyAS.PlayOneShot(enemyDieSfx);
         health -= 1;
 
         // Check if health is zero or less

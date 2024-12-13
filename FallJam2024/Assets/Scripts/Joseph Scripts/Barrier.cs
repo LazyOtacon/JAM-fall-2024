@@ -6,6 +6,9 @@ public class Barrier : MonoBehaviour
 {
     public float health = 4f; // Initial health of the object
 
+    public AudioSource barrierAS;
+    public AudioClip barrierHitSfx;
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the colliding object has the tag "spell"
@@ -31,6 +34,8 @@ public class Barrier : MonoBehaviour
     /// </summary>
     private void OnSpellContact()
     {
+        barrierAS.PlayOneShot(barrierHitSfx);
+
         health -= 1;
 
         // Check if health is zero or less

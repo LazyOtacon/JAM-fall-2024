@@ -103,6 +103,8 @@ MonoBehaviour:
   IsgoingDown: 0
   speed: 2.05
   destroyAfterSeconds: 12
+  enemyAS: {fileID: 0}
+  enemyDieSfx: {fileID: 8300000, guid: f1b9afdaa48868d4c92fd4bddc145567, type: 3}
 --- !u!61 &3764067771396200535
 BoxCollider2D:
   m_ObjectHideFlags: 0

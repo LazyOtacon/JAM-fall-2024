@@ -6,6 +6,16 @@ public class InnitMonster : MonoBehaviour
 {
     public float health = 1f; // Initial health of the object
 
+    public AudioSource enemyAS;
+    public AudioClip enemyDieSfx;
+
+    
+    void Start()
+    {
+        var spellGameObject = GameObject.FindGameObjectsWithTag("EnemyAS")[0];
+        enemyAS = GameObject.FindGameObjectsWithTag("EnemyAS")[0]
+            .GetComponent<AudioSource>();
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the colliding object has the tag "spell"
@@ -29,6 +39,7 @@ public class InnitMonster : MonoBehaviour
     /// </summary>
     private void OnSpellContact()
     {
+        enemyAS.PlayOneShot(enemyDieSfx);
         health -= 1;
 
         // Check if health is zero or less
