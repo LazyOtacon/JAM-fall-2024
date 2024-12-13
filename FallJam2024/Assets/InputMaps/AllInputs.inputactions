@@ -445,7 +445,18 @@
                 {
                     "name": "",
                     "id": "be2789f9-9aaa-44e1-a7de-d8c1ee45c3ea",
-                    "path": "",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpawnMonster",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eef640ea-3aa9-45ef-bb00-289fc5d51675",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button11",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -460,6 +471,28 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "SpawnHoard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1e2cdf13-0056-4413-8574-ae30d453916e",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpawnHoard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "85257467-0761-4a93-98cc-f761ca62077e",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "SpawnHoard",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -504,8 +504,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076294, y: -83}
-  m_SizeDelta: {x: 233.317, y: 60.1893}
+  m_AnchoredPosition: {x: -0, y: -100.171814}
+  m_SizeDelta: {x: 366.446, y: 94.5329}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &43522792
 MonoBehaviour:
@@ -2323,8 +2323,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000017409, y: -180.8}
-  m_SizeDelta: {x: 233.32, y: 62.0788}
+  m_AnchoredPosition: {x: -0.000015258789, y: -253.77577}
+  m_SizeDelta: {x: 366.4507, y: 97.5005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &421105024
 MonoBehaviour:
@@ -8513,8 +8513,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 50.59
+  m_fontSizeBase: 50.59
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9323,8 +9323,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 50.59
+  m_fontSizeBase: 50.59
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10452,10 +10452,6 @@ PrefabInstance:
       propertyPath: MonsterCooldownImage
       value: 
       objectReference: {fileID: 118116713}
-    - target: {fileID: 2272722208859570504, guid: a008bbb769560f341a77693f5fae5905, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 43cb3fbdb6f140d49a0c259ba84f9f5b, type: 3}
     - target: {fileID: 5252835320863166936, guid: a008bbb769560f341a77693f5fae5905, type: 3}
       propertyPath: m_Name
       value: Player
@@ -10553,10 +10549,6 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5013997505507151785, guid: d4249abfab7ba9948b627379824d70a5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 791cfb7fabe84944cb14727220ec9974, type: 3}
     - target: {fileID: 7241243927309332326, guid: d4249abfab7ba9948b627379824d70a5, type: 3}
       propertyPath: m_Enabled
       value: 1

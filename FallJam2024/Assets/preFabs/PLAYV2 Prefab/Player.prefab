@@ -90,7 +90,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ed1af29707eaf684080be5199e0163c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43cb3fbdb6f140d49a0c259ba84f9f5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   fireCooldownImage: {fileID: 0}
   shieldCooldownImage: {fileID: 0}
   MonsterCooldownImage: {fileID: 0}
+  HoardCooldownImage: {fileID: 0}
 --- !u!61 &9027855122485625222
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -163,7 +164,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.17, y: 8.66}
+    oldSize: {x: 10.21, y: 11.08}
     newSize: {x: 7.17, y: 8.66}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
