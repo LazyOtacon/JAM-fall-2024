@@ -69,7 +69,7 @@ public class player2Movement : MonoBehaviour
     // Input System for movement
     public void OnMove(InputValue inputValue)
     {
-        playerMove = inputValue.Get<Vector2>();
+        playerMove = -inputValue.Get<Vector2>();
         Debug.Log("Movement Input: " + playerMove);
     }
 
