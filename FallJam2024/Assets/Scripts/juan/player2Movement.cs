@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI; // Add this for UI elements like Slider
@@ -37,6 +35,13 @@ public class player2Movement : MonoBehaviour
     public Image shieldCooldownImage; // Reference to the shield cooldown UI image
     public Image MonsterCooldownImage; // Reference to the monster cooldown UI image
     public Image HoardCooldownImage; // Reference to the monster cooldown UI image
+
+
+    //Audio References
+    public AudioSource plrAS;
+    public AudioClip fireSfx;
+    public AudioClip shieldSfx;
+    public AudioClip spawnSfx;
 
     void Update()
     {
@@ -133,6 +138,7 @@ public class player2Movement : MonoBehaviour
         Vector3 spellPosition = transform.position + new Vector3(0, -0.5f, 0); // Offset for the spell spawn position
         GameObject spell = Instantiate(spellProjectile, spellPosition, Quaternion.identity); // Create the spell
         spell.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -spellSpeed); // Apply velocity to the spell
+        plrAS.PlayOneShot(fireSfx);
     }
 
     // Activates the shield
@@ -141,18 +147,21 @@ public class player2Movement : MonoBehaviour
         Vector3 shieldPosition = transform.position; // Shield spawns at the player's position
         activeShield = Instantiate(shieldPrefab, shieldPosition, Quaternion.identity);
         activeShield.transform.SetParent(transform); // Attach the shield to the player
+        plrAS.PlayOneShot(shieldSfx);
     }
 
     void SummonMonster()
     {
         Vector3 MonsterPosition = transform.position + new Vector3(0, -1f, 0); // Offset for the spell spawn position
         Instantiate(monsterPrefab, MonsterPosition, Quaternion.identity); // Create the spell
+        plrAS.PlayOneShot(spawnSfx);
     }
 
     void SummonHoard()
     {
         Vector3 MonsterPosition = transform.position + new Vector3(0, -5f, 0); // Offset for the spell spawn position
         Instantiate(hoardPrefab, MonsterPosition, Quaternion.identity); // Create the spell
+        plrAS.PlayOneShot(spawnSfx);
     }
 
     // Updates the fire cooldown UI bar (using Image fillAmount)

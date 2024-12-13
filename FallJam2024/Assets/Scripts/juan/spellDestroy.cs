@@ -8,8 +8,14 @@ public class spellDestroy : MonoBehaviour
 
     public float destroyAfterSeconds = 1.5f;
 
+    public AudioSource spellAS;
+    public AudioClip shieldHitSfx;
+
     void Start()
     {
+        var spellGameObject = GameObject.FindGameObjectsWithTag("SpellAS")[0];
+        spellAS = GameObject.FindGameObjectsWithTag("SpellAS")[0]
+            .GetComponent<AudioSource>();
         // Schedule the destruction of the object
         Destroy(gameObject, destroyAfterSeconds);
     }
@@ -45,11 +51,13 @@ public class spellDestroy : MonoBehaviour
             // Check the tag of THIS gameobject.
             if (gameObject.CompareTag("spell") && collision.gameObject.CompareTag("shield2"))
             {
+                spellAS.PlayOneShot(shieldHitSfx);
                 Destroy(collision.gameObject); // Destroy Shield2
                 Destroy(gameObject); // Destroy the spell after processing
             }
             else if (gameObject.CompareTag("spell2") && collision.gameObject.CompareTag("shield"))
             {
+                spellAS.PlayOneShot(shieldHitSfx);
                 Destroy(collision.gameObject); // Destroy Shield1
                 Destroy(gameObject); // Destroy the spell after processing
             }
